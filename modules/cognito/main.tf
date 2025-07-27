@@ -20,7 +20,7 @@ resource "aws_cognito_user_pool_client" "main" {
   logout_urls   = [ var.alb_callback_url ]   # (Optional) Redirect here on logout
 
   # Prevent user existence errors (optional best practice for new pools)
-  prevent_user_existence_errors = true
+  prevent_user_existence_errors = "ENABLED"
 }
 
 resource "aws_cognito_user_pool_domain" "main" {
