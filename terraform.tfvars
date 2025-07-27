@@ -5,3 +5,4 @@ priv_sub_count   = 2
 #nat_count        = 1
 patient_repo_uri = "012889719104.dkr.ecr.ap-south-1.amazonaws.com/patient-service"
 appointment_repo_uri = "012889719104.dkr.ecr.ap-south-1.amazonaws.com/appointment-service"
+certificate_arn = "arn:aws:acm:region:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
