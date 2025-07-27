@@ -1,6 +1,25 @@
 resource "aws_s3_bucket" "cloudtrail" {
   bucket = "${var.environment}-cloudtrail-logs-hcl-bayer"
   force_destroy = true
+} 
+
+
+resource "aws_cloudtrail" "main" {
+  name                          = "${var.environment}-trail"
+  s3_bucket_name                = aws_s3_bucket.cloudtrail.id
+  include_global_service_events = true
+  is_multi_region_trail         = true
+  enable_log_file_validation    = true
+
+  event_selector {
+    read_write_type           = "All"
+    include_management_events = true
+  }
+}
+
+resource "aws_s3_bucket_policy" "cloudtrail_policy" {
+  bucket = aws_s3_bucket.cloudtrail.id
+
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -33,16 +52,3 @@ resource "aws_s3_bucket" "cloudtrail" {
 
 data "aws_caller_identity" "current" {}
 
-
-resource "aws_cloudtrail" "main" {
-  name                          = "${var.environment}-trail"
-  s3_bucket_name                = aws_s3_bucket.cloudtrail.id
-  include_global_service_events = true
-  is_multi_region_trail         = true
-  enable_log_file_validation    = true
-
-  event_selector {
-    read_write_type           = "All"
-    include_management_events = true
-  }
-}
