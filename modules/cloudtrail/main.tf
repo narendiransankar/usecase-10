@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "cloudtrail" {
-  bucket = "${var.environment}-cloudtrail-logs"
+  bucket = "${var.environment}-cloudtrail-logs-hcl-bayer"
   force_destroy = true
 }
 
