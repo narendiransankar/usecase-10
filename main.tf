@@ -42,19 +42,19 @@ module "ecs" {
 }
 
 module "sns" {
-  source       = "./modules/mod-sns"
+  source       = "./modules/sns"
   environment  = var.environment
   alert_email  = var.alert_email
 }
 
 module "cloudwatch" {
-  source           = "./modules/mod-cloudwatch"
+  source           = "./modules/cloudwatch"
   environment      = var.environment
   ecs_cluster_name = var.ecs_cluster_name
   sns_topic_arn    = module.sns.topic_arn
 }
 
 module "cloudtrail" {
-  source      = "./modules/mod-cloudtrail"
+  source      = "./modules/cloudtrail"
   environment = var.environment
 }
