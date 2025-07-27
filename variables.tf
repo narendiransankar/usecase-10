@@ -33,4 +33,9 @@ variable "certificate_arn" {
 description = "certificate"
 type = string
 }
+variable "alert_email" {
+description = "email"
+type = string
+}
+
 
