@@ -50,7 +50,7 @@ module "sns" {
 module "cloudwatch" {
   source           = "./modules/cloudwatch"
   environment      = var.environment
-  ecs_cluster_name = var.ecs_cluster_name
+  ecs_cluster_name = module.ecs.ecs_cluster_name
   sns_topic_arn    = module.sns.topic_arn
 }
 
