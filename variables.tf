@@ -29,7 +29,7 @@ variable "appointment_repo_uri" {
 description = "The appointment image repo URL"
 type = string
 }
-variable "certificate_arn " {
+variable "certificate_arn" {
 description = "certificate"
 type = string
 }
