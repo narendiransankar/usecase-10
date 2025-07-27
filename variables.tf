@@ -37,5 +37,10 @@ variable "alert_email" {
 description = "email"
 type = string
 }
+variable "call_backurl" {
+description = "url"
+type = string
+}
+
 
 
