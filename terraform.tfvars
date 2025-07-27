@@ -7,3 +7,4 @@ patient_repo_uri = "012889719104.dkr.ecr.ap-south-1.amazonaws.com/patient-servic
 appointment_repo_uri = "012889719104.dkr.ecr.ap-south-1.amazonaws.com/appointment-service"
 certificate_arn = "arn:aws:acm:ap-south-1:012889719104:certificate/0cc99bc9-f89c-4048-ba87-7a0c3cb71f39"
 alert_email = "narendiran.sankar@hcltech.com"
+call_backurl =  "https://hcl.way2artist.com/oauth2/idpresponse"
