@@ -40,3 +40,21 @@ module "ecs" {
   patient_target_group_arn = module.alb.patient_tg_arn
   appointment_target_group_arn = module.alb.appointment_tg_arn
 }
+
+module "sns" {
+  source       = "./modules/mod-sns"
+  environment  = var.environment
+  alert_email  = var.alert_email
+}
+
+module "cloudwatch" {
+  source           = "./modules/mod-cloudwatch"
+  environment      = var.environment
+  ecs_cluster_name = var.ecs_cluster_name
+  sns_topic_arn    = module.sns.topic_arn
+}
+
+module "cloudtrail" {
+  source      = "./modules/mod-cloudtrail"
+  environment = var.environment
+}
