@@ -11,7 +11,7 @@ module "cognito" {
   source           = "./modules/cognito"
   environment      = var.environment
   # Pass the ALB callback URL (using ALB DNS from output if available, or construct after ALB creation)
-  alb_callback_url = "https://${module.alb.alb_dns_name}/oauth2/idpresponse"
+  alb_callback_url = "https://hcl.way2artist.com/"
 }
 
 
