@@ -15,6 +15,9 @@ resource "aws_cloudtrail" "main" {
     read_write_type           = "All"
     include_management_events = true
   }
+  depends_on = [
+    aws_s3_bucket_policy.cloudtrail_policy
+  ]
 }
 
 resource "aws_s3_bucket_policy" "cloudtrail_policy" {
